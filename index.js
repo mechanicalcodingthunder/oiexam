@@ -1,5 +1,5 @@
 async function getDirectory(dirname,roll) {
-  let response = await fetch('https://github.com/mechanicalcodingthunder/oiexam/tree/main/Files/',{
+  let response = await fetch('Files',{
   method: "POST",
   mode: "no-cors",})
   // let response = await fetch(dirname);
