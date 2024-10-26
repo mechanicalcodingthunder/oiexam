@@ -1,7 +1,5 @@
 async function getDirectory(dirname,roll) {
-  let response = await fetch('Files',{
-  method: "POST",
-  mode: "no-cors",})
+  let response = await fetch('Files')
   // let response = await fetch(dirname);
   console.log(response)
   let str = await response.text();
