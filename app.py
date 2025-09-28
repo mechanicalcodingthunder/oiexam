@@ -21,7 +21,7 @@ rows = [];
 for table in tables:
     for row in table:
         rows.append(row)
-        # print(row)
+        print(row)
         print(len(row))
 
 @app.route('/')
@@ -34,11 +34,6 @@ def home():
 def data_recieve():
     data = rows;
     return jsonify(data)
-
-# @app.route('/')
-# def get_users():
-#     users = [{'id': 1, 'username': 'Prajjwal'}, {'id': 2, 'username': 'Kareena'}]
-#     return jsonify(users)
 
 if __name__=="__main__":
     app.run(debug=True)

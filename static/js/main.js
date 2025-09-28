@@ -15,5 +15,7 @@ let obj;
 function create_data(data) {
     obj = data;
     console.log(data);
-    document.getElementsByClassName("data")[0].firstElementChild.innerText = obj;
+    console.log(JSON.stringify(obj)[0])
+    document.getElementsByClassName("data")[0].children[0].innerText = obj[4];
+    document.getElementsByClassName("data")[0].children[1].innerText = obj[5];
 }
