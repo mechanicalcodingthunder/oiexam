@@ -1,20 +1,26 @@
 function read_file(input) {
-    const input_file = input;
-    console.log(input_file)
-    // fetch(input_file).then((res) => res.text()).then(blob => readXlsxFile(blob)).then((rows) => read_data(rows));
-    fetch(input_file).then((res) => res.text()).then(text => { const rows = text.split("\n");
-        console.log(rows)
-      })
-      .catch(err => console.error("Error loading CSV:", err));
-    document.querySelector(".popup").style.display = "block";
-
+  const input_file = input;
+  console.log(input_file);
+  Papa.parse(input_file, {
+    header: false, // Since your file has irregular/multi-line headers
+    download: true,
+    skipEmptyLines: true,
+    newline: "\n", // Let PapaParse auto-detect newlines
+    complete: function (results) {
+      console.log(results.data);
+      document.getElementById("output").innerText = results.data[8];
+    },
+    error: function (error) {
+      console.error("Error parsing CSV:", error);
+    },
+  });
 }
 
 document.querySelector("#close").addEventListener("click", function () {
-    document.querySelector(".popup").style.display = "none";
+  document.querySelector(".popup").style.display = "none";
 });
 
-let obj
+let obj;
 function read_data(data) {
-    obj = data;
+  obj = data;
 }

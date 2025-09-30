@@ -17,15 +17,16 @@ pdf = pdfplumber.open(path_to_pdf)
 all_tables = []
 print(path_to_pdf)
 for page in pdf.pages:
-    tb = page.extract_table({"text_line_dir":"btt"})
-    print(tb[6])
+    tb = page.extract_table({"text_line_dir": "btt"})
+    print(tb[0])
     if page == pdf.pages[0]:
         df = pd.DataFrame(tb)
     else:
         df = pd.DataFrame(tb[8:])
     all_tables.append(df)
 combined_df = pd.concat(all_tables, ignore_index=True)
-combined_df.to_excel('filename.xlsx', sheet_name='MySheet')
+print(combined_df.head())
+# combined_df.to_csv("output1.csv", index=False, header=False)
 # print(tables)
 # rows = []
 # print("TABLE")
