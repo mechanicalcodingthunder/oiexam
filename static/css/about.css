@@ -1,0 +1,80 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+    font-size: 12px;
+}
+
+.about{
+    display: flex;
+    height: fit-content;
+    justify-content: center;
+    font-size: 1.5rem;
+    position: relative;
+    background-color: #2f3548da;
+    align-items: center;
+}
+img{
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    padding: 5px;
+    margin: auto;
+
+}
+.details::before{
+    content: '';
+    background-color: rgb(30 75 139 / 0%);
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.89;
+    border-radius: 25px;
+}
+
+.details{
+    padding: 20px;
+    width: 500px;
+    border-radius: 25px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    box-shadow: 20px 20px 50px rgb(30 75 139 / 0%);
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background: linear-gradient(45deg, black, transparent);
+}
+
+.details .bio-data{
+    padding: 5px;
+    width: 90%;
+    display: flex;
+    text-align: justify;
+    /* margin: auto; */
+}
+p{
+    margin: auto;
+    padding: 0 20px;
+}
+.details .qual{
+    display: flex;
+    color: #c1ffa3;
+    margin-left: 0;
+    /* text-align: center; */
+}
+
+.inform{
+    margin-left: 20px;
+}
+div.about ul{
+    margin: 0 0 0 20px;
+}
+div.about li{
+    margin: 0 0 0 50px;
+}

@@ -1,0 +1,44 @@
+@media only screen and (max-width: 678px){
+    .container::before{
+        top: 100px;
+    }
+}
+@media only screen and (max-width: 409px){
+    .popup_screen{
+        z-index: 999999;
+        position: fixed;
+        background: rgba(255, 255, 255, 0.1);
+        width: 100%;
+    }
+    .popup{
+        width:500px;
+    } 
+    .heading p{
+        font-size:1.2rem;
+    }
+    .container p{
+        width: 200px;
+        font-size: 2.2rem;
+        margin: 30px auto auto auto;
+    }
+    .container::before{
+        top: 250px;
+    }
+    img{
+        width: 250px;
+        height: 170px;
+    }
+    .main_container>p{
+        font-size: 2.0rem;
+    }
+    .ancher-style-2{
+        font-size: 1.6rem;;
+    }
+    .ring{
+        width: 100px;
+        height: 100px;
+    }
+    .load-text{
+        font-size: 10px;
+    }
+}
