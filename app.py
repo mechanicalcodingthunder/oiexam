@@ -16,17 +16,34 @@ path_to_pdf = "./Files/" + file
 pdf = pdfplumber.open(path_to_pdf)
 all_tables = []
 print(path_to_pdf)
+
+
+def clean_table(table):
+    cleaned_table = []
+    for row in table:
+        cleaned_row = []
+        for cell in row:
+            if cell:
+                cleaned_row.append(cell.replace("\n", " "))
+            else:
+                cleaned_row.append(None)
+        cleaned_table.append(cleaned_row)
+    return cleaned_table
+
+
 for page in pdf.pages:
     tb = page.extract_table({"text_line_dir": "btt"})
     print(tb[0])
+    cleaned_table = clean_table(tb)
+    print(cleaned_table)
     if page == pdf.pages[0]:
-        df = pd.DataFrame(tb)
+        df = pd.DataFrame(cleaned_table)
     else:
-        df = pd.DataFrame(tb[8:])
+        df = pd.DataFrame(cleaned_table[8:])
     all_tables.append(df)
 combined_df = pd.concat(all_tables, ignore_index=True)
 print(combined_df.head())
-# combined_df.to_csv("output1.csv", index=False, header=False)
+combined_df.to_csv("output2.csv", index=False, header=False)
 # print(tables)
 # rows = []
 # print("TABLE")
