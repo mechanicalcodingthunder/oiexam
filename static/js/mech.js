@@ -9,6 +9,8 @@ const branch = {
 function read_data(data, trgt) {
   init();
   console.log(branch[trgt])
+  let reu = data[branch[trgt]]
+  console.log([reu.slice(0, 3), reu.slice(-3)])
   document.getElementById("output").innerText = data[branch[trgt]];
 }
 function init() {
@@ -23,7 +25,7 @@ function read_file(input) {
       trgt = e.target.textContent;
     }
   })
-  const input_file =input;
+  const input_file = input;
   Papa.parse(input_file, {
     header: false, // Since your file has irregular/multi-line headers
     download: true,
