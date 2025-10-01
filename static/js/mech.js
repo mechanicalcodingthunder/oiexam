@@ -2,12 +2,6 @@ window.onload = function () {
   console.log('Loaded')
 }
 
-
-
-document.querySelector("#close").addEventListener("click", function () {
-  document.querySelector(".popup").style.display = "none";
-});
-
 const branch = {
   "Civil": 0, "Computer": 1, "Electrical": 2, "ECE": 3, "FAA": 4, "FD": 5,
   "FT": 6, "IC": 7, "Mechanical": 8, "Med Eltx": 9, "TD": 10, "TP": 11, "TT": 12,
@@ -22,7 +16,7 @@ function init() {
 }
 function read_file(input) {
   const dropdown = document.querySelector(".menu");
-  let trgt;
+  let trgt = "Mechanical"
   dropdown.addEventListener("click", function (e) {
     if (e.target.tagName === "A") {
       e.preventDefault();
@@ -43,5 +37,5 @@ function read_file(input) {
       console.error("Error parsing CSV:", error);
     },
   })
-  document.querySelector(".popup").style.display = "block";
 }
+read_file("output2.csv")

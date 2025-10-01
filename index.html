@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="/static/css/mech.css">
     <script src="/static/js/read-excel-file.min.js"></script>
     <script src="/static/js/jquery-3.6.3.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
@@ -24,44 +23,35 @@
         </nav>
     </header>
     <div class="main_body">
-        <div class="branch">
-            <p>Choose the Branch</p>
-            <div class="dropdown">
-                <div class="select"><span class="selected">Mechanical</span><span class="carret"></span>
+        <div class="main-container">
+            <div class="branch popup">
+                <p>Choose the Branch</p>
+                <div class="dropdown">
+                    <div class="select"><span class="selected">Mechanical</span><span class="carret"></span>
+                    </div>
+                    <ul class="menu">
+                        <li><a class="ancher-style" href="#" onclick="read_file('output2.csv')">Civil</a></li>
+                        <li><a class="ancher-style" href="#" onclick="read_file('output2.csv')">Computer</a></li>
+                        <li><a class="ancher-style" href="#" onclick="read_file('output2.csv')">Electrical</a></li>
+                        <li><a class="ancher-style" href="#" onclick="read_file('output2.csv')">ECE</a></li>
+                        <li><a class="ancher-style" href="#" onclick="read_file('output2.csv')">FAA</a></li>
+                        <li><a class="ancher-style" href="#" onclick="read_file('output2.csv')">FD</a></li>
+                        <li><a class="ancher-style" href="#" onclick="read_file('output2.csv')">FT</a></li>
+                        <li><a class="ancher-style" href="#" onclick="read_file('output2.csv')">IC</a></li>
+                        <li><a class="ancher-style" href="#" onclick="read_file('output2.csv')">Mechanical</a></li>
+                        <li><a class="ancher-style" href="#" onclick="read_file('output2.csv')">Med Eltx</a></li>
+                        <li><a class="ancher-style" href="#" onclick="read_file('output2.csv')">TD</a></li>
+                        <li><a class="ancher-style" href="#" onclick="read_file('output2.csv')">TP</a></li>
+                        <li><a class="ancher-style" href="#" onclick="read_file('output2.csv')">TT</a></li>
+                    </ul>
                 </div>
-                <ul class="menu">
-                    <li><a class="ancher-style" href="#" onclick="read_file('output2.csv')">Civil</a></li>
-                    <li><a class="ancher-style" href="#" onclick="read_file('output2.csv')">Computer</a></li>
-                    <li><a class="ancher-style" href="#" onclick="read_file('output2.csv')">Electrical</a></li>
-                    <li><a class="ancher-style" href="#" onclick="read_file('output2.csv')">ECE</a></li>
-                    <li><a class="ancher-style" href="#" onclick="read_file('output2.csv')">FAA</a></li>
-                    <li><a class="ancher-style" href="#" onclick="read_file('output2.csv')">FD</a></li>
-                    <li><a class="ancher-style" href="#" onclick="read_file('output2.csv')">FT</a></li>
-                    <li><a class="ancher-style" href="#" onclick="read_file('output2.csv')">IC</a></li>
-                    <li><a class="ancher-style" href="#" onclick="read_file('output2.csv')">Mechanical</a></li>
-                    <li><a class="ancher-style" href="#" onclick="read_file('output2.csv')">Med Eltx</a></li>
-                    <li><a class="ancher-style" href="#" onclick="read_file('output2.csv')">TD</a></li>
-                    <li><a class="ancher-style" href="#" onclick="read_file('output2.csv')">TP</a></li>
-                    <li><a class="ancher-style" href="#" onclick="read_file('output2.csv')">TT</a></li>
-                </ul>
-                </li>
-
-                </ul>
             </div>
-
             <div id="loader">
                 <div class="ring"></div>
                 <span class="load-text">Loading..</span>
             </div>
-            <pre id="output"></pre>
-
             <div class="main-content">
-                <div class="btn_group">
-                    <button type="button" id="Check_result" class="btn" onclick="read_file('output2.csv')">Check
-                        Result</button>
-                </div>
                 <div class="popup">
-                    <button id="close">&times;</button>
                     <div class="cal" id="cal">
                         <label for="number">Enter your Roll No</label>
                         <input inputmode="numeric" pattern="[0-9]*" type="text" onkeypress="return onlyNumberkey(event)"
@@ -84,6 +74,7 @@
                 </div>
             </div>
         </div>
+        <pre id="output"></pre>
         <footer>
             <div class="center">
                 Copyright 2023 Mechanical Coding Thunder
