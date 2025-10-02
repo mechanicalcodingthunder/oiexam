@@ -2,6 +2,14 @@ window.onload = function () {
   console.log("laoded");
   fetch_file();
 };
+// Select the branch on click
+function branch_select(e) {
+  console.log(e);
+  e.preventDefault;
+  const selected = document.querySelector(".selected");
+  selected.innerText = e.textContent;
+  fetch_file();
+}
 
 function fetch_file() {
   const fil = document.querySelector(".selected").innerText;
@@ -15,8 +23,8 @@ function fetch_file() {
       return res.json();
     })
     .then((file) => {
-      console.log(file);
-      // read_file("output2.csv");
+      console.log(file.Files);
+      read_file(file.Files);
     })
     .catch((error) => {
       console.error("Error Fetching", error);
@@ -37,17 +45,18 @@ const branch = {
   TP: 11,
   TT: 12,
 };
-function read_data(data, trgt) {
+function read_data(data) {
   init();
   let dat = [];
   data.forEach((element) => {
     let count = 0;
     // console.log(element);
     for (let row of element) {
-      if (row === "220042700002") {
+      if (row === "220042700059") {
         dat.push(element);
         console.log(row);
         console.log("hell");
+        console.log(dat[0].slice(0, 3).concat(dat[0].slice(-3)));
         break;
       } else if (count === 5) {
         break;
@@ -57,43 +66,26 @@ function read_data(data, trgt) {
     }
   });
   console.log(dat);
-  let reu = data[branch[trgt]];
-  console.log(reu);
-  // console.log(reu.slice(0, 3).concat(reu.slice(-3)));
-  document.getElementById("output").innerText = data[branch[trgt]];
+  // document.getElementById("output").innerText = data[branch[trgt]];
 }
 function init() {
   document.getElementById("output").innerText = "";
 }
-function branch_select(e) {
-  console.log(e);
-  const selected = document.querySelector(".selected");
-  selected.innerText = e.textContent;
-  fetch_file();
-  //   }
-  // });
-}
+
 function read_file(input) {
-  const dropdown = document.querySelector(".menu");
-  let trgt = document.querySelector(".selected").innerText;
-  dropdown.addEventListener("click", function (e) {
-    if (e.target.tagName === "A") {
-      e.preventDefault();
-      trgt = e.target.textContent;
-    }
-  });
-  const input_file = input;
-  Papa.parse(input_file, {
-    header: false, // Since your file has irregular/multi-line headers
-    download: true,
-    skipEmptyLines: true,
-    // newline: "\n", // Let PapaParse auto-detect newlines
-    complete: function (results) {
-      console.log(results.data);
-      read_data(results.data, trgt);
-    },
-    error: function (error) {
-      console.error("Error parsing CSV:", error);
-    },
-  });
+  for (const input_file of input) {
+    Papa.parse(input_file, {
+      header: false, // Since your file has irregular/multi-line headers
+      download: true,
+      skipEmptyLines: true,
+      // newline: "\n", // Let PapaParse auto-detect newlines
+      complete: function (results) {
+        console.log(results.data);
+        read_data(results.data);
+      },
+      error: function (error) {
+        console.error("Error parsing CSV:", error);
+      },
+    });
+  }
 }
