@@ -13,12 +13,12 @@ function branch_select(e) {
   fetch_file();
 }
 
-function create_table() {
+function create_table(obj) {
+  console.log(obj);
   const tbl =
     document.getElementsByClassName("table_container")[0].lastElementChild;
   const p_ele =
     document.getElementsByClassName("table_container")[0].firstElementChild;
-  col = 5;
   if (tbl.childElementCount == 2) {
     if (tbl.classList.contains("hide")) {
       tbl.classList.toggle("hide");
@@ -35,8 +35,8 @@ function create_table() {
   }
   const tr = document.createElement("tr");
 
-  const obj = "hello";
-  for (let j of obj) {
+  for (let j of obj[0]) {
+    console.log(j);
     const td = document.createElement("td");
     td.appendChild(document.createTextNode(j));
     tr.appendChild(td);
@@ -74,7 +74,13 @@ function create_data(value) {
   });
   document.getElementById("output").innerText = final_result;
   console.log(final_result);
-  create_table();
+  if (final_result.length > 0) {
+    for (const result of final_result) {
+      console.log(result.length);
+      console.log(result);
+      create_table(result);
+    }
+  }
 }
 
 function showresult(evt) {
@@ -147,4 +153,3 @@ function read_file(input) {
     });
   }
 }
-create_table();

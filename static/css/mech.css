@@ -3,6 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+p {
+  font-size: 2rem;
+}
 html {
   scroll-behavior: smooth;
   font-size: 12px;
@@ -161,6 +164,7 @@ label {
   height: 250px;
   margin: 5px 5px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   overflow: auto;
   color: #fff;
@@ -170,7 +174,7 @@ label {
 }
 
 .table_container p {
-  margin: auto;
+  margin: 10px;
 }
 
 .table_container::-webkit-scrollbar {
