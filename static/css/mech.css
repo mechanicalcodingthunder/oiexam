@@ -79,7 +79,7 @@ body {
 .popup {
   background-color: #ffffff;
   width: 420px;
-  height: 250px;
+  height: 150px;
   padding: 10px 20px;
   border-radius: 8px;
   font-family: “Poppins”, sans-serif;
@@ -161,7 +161,7 @@ label {
   border-radius: 10px;
 }
 .table_container {
-  height: 250px;
+  height: 200px;
   margin: 5px 5px;
   display: flex;
   flex-direction: column;

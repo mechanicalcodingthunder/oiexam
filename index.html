@@ -106,28 +106,26 @@
         <div class="ring"></div>
         <span class="load-text">Loading..</span>
       </div> -->
-      <div class="main-content">
-        <div class="popup">
-          <div class="cal" id="cal">
-            <label for="number">Enter your Roll No</label>
-            <input
-              inputmode="numeric"
-              pattern="[0-9]*"
-              type="text"
-              onkeypress="return onlyNumberkey(event)"
-              maxlength="12"
-              id="number"
-              name="number"
-            />
-            <button
-              type="button"
-              id="show_result"
-              class="btn"
-              onclick="showresult(event)"
-            >
-              Show Result
-            </button>
-          </div>
+      <div class="popup">
+        <div class="cal" id="cal">
+          <label for="number">Enter your Roll No</label>
+          <input
+            inputmode="numeric"
+            pattern="[0-9]*"
+            type="text"
+            onkeypress="return onlyNumberkey(event)"
+            maxlength="12"
+            id="number"
+            name="number"
+          />
+          <button
+            type="button"
+            id="show_result"
+            class="btn"
+            onclick="showresult(event)"
+          >
+            Show Result
+          </button>
         </div>
       </div>
     </div>
@@ -140,7 +138,6 @@
         </thead>
       </table>
     </div>
-    <pre id="output"></pre>
     <footer>
       <div class="center">Copyright 2025 GDGP HISAR EXAM BRANCH</div>
     </footer>
