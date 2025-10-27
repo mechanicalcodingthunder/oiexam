@@ -1,7 +1,5 @@
 async function getDirectory(dirname,roll) {
-  let response = await fetch('Files/')
-  // let response = await fetch(dirname);
-  console.log(response)
+  let response = await fetch(dirname);
   let str = await response.text();
   let el = document.createElement('html');
   el.innerHTML = str;

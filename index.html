@@ -8,14 +8,13 @@
     <link rel="icon" type="image/png" href="/static/images/favicon.jpg" />
     <link rel="stylesheet" href="/static/css/mech.css" />
     <script src="/static/js/read-excel-file.min.js"></script>
-    <script src="/static/js/jquery-3.6.3.js"></script>
+    <!-- <script src="/static/js/jquery-3.6.3.js"></script> -->
     <script
       id="MathJax-script"
-      async
+      async=""
       src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
     ></script>
   </head>
-
   <body>
     <header>
       <nav id="navbar" class="stick_top">
@@ -138,8 +137,41 @@
         </thead>
       </table>
     </div>
+    <div class="create_provisional">
+      <button type="button" class="btn" onclick="open_popup(this)">
+        Create Provisional
+      </button>
+    </div>
+    <div class="provisional_input hide">
+      <div class="close_btn">
+        <p>Select the Course Name</p>
+        <label><input type="checkbox" name="DET" value="DET" />DET</label>
+        <label><input type="checkbox" name="DETL" value="DETL" />DETL</label>
+        <button id="close" onclick="hide_provisional_window(this)">
+          &times
+        </button>
+      </div>
+      <div class="name popup">
+        <p>Select the student Name</p>
+      </div>
+      <div class="name popup">
+        <p>Select the father Name</p>
+      </div>
+      <div class="name popup">
+        <p>Select the mother Name</p>
+      </div>
+      <div class="generate_provisional">
+        <button type="button" class="btn" onclick="openNewpage()">
+          Generate Provisional
+        </button>
+      </div>
+    </div>
     <footer>
-      <div class="center">Copyright 2025 GDGP HISAR EXAM BRANCH</div>
+      <div class="center">
+        © 2025 GDGP Hisar Exam Branch. This information is for internal
+        institutional use only. The results displayed here are tentative and
+        subject to verification.
+      </div>
     </footer>
   </body>
   <script
@@ -147,4 +179,5 @@
     src="/static/PapaParse-5.0.2/papaparse.min.js"
   ></script>
   <script type="text/javascript" src="/static/js/mech.js"></script>
+  <!-- <script src="/static/js/provisional.js"></script> -->
 </html>
